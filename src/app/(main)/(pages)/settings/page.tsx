@@ -1,7 +1,38 @@
 import ProfileForm from "@/components/forms/profile-form";
 import React from "react";
+import ProfilePictures from "./_components/profile-picture";
+import { db } from "@/lib/db";
+
+
 
 const Settings = () => {
+  // const removeProfileImage = async () => {
+  //   'use server'
+  //   const response = await db.user.update({
+  //     where: {
+  //       clerkId: authUser.id,
+  //     },
+  //     data: {
+  //       profileImage: '',
+  //     },
+  //   })
+  //   return response
+  // }
+
+  // const uploadProfileImage = async (image: string) => {
+  //   'use server'
+  //   const id = authUser.id
+  //   const response = await db.user.update({
+  //     where: {
+  //       clerkId: id,
+  //     },
+  //     data: {
+  //       profileImage: image,
+  //     },
+  //   })
+
+  //   return response
+  // }
   //wireUp Profile Picture
   return (
     <div className="flex flex-col gap-4">
@@ -15,6 +46,13 @@ const Settings = () => {
                 Add or Update Your Information.
             </p>
         </div>
+        {/* <ProfilePictures 
+        onDelete={removeProfileImage}
+        onUpload={uploadProfileImage}
+        userImage={user?.profilemage || ""} 
+        > */}
+
+        {/* </ProfilePictures> */}
         <ProfileForm/>
       </div>
     </div>
