@@ -1,5 +1,6 @@
 import React from 'react'
 import Sidebar from '@/components/sidebar'
+import InfoBar from '@/components/infobar'
 
 type LayoutProps = {
     children: React.ReactNode
@@ -10,6 +11,7 @@ type LayoutProps = {
     <div className='flex overflow-hidden h-full'>
       <Sidebar/>
         <div className='w-full'>
+          <InfoBar/>
             {props.children}
         </div>
     </div>
