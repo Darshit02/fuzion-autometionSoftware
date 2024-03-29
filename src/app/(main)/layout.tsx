@@ -1,4 +1,5 @@
 import React from 'react'
+import Sidebar from '@/components/sidebar'
 
 type LayoutProps = {
     children: React.ReactNode
@@ -6,7 +7,8 @@ type LayoutProps = {
 
  const Layout = (props : LayoutProps) => {
   return (
-    <div className='flex overflow-hidden h-screen'>
+    <div className='flex overflow-hidden h-full'>
+      <Sidebar/>
         <div className='w-full'>
             {props.children}
         </div>
