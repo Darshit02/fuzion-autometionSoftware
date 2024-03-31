@@ -4,12 +4,12 @@ import * as LR from "@uploadcare/blocks";
 import { useRouter } from "next/navigation";
 
 type Props = {
-  onUpload?: any;
+  onUpload: (e: string) => Promise<any>;
 };
 
 LR.registerBlocks(LR);
 
-const UploadCareButton = ({ onUpload }: Props) => {
+const UploadCareButton =  ({ onUpload }: Props) => {
   const router = useRouter();
   const ctxProviderRef = useRef<
     typeof LR.UploadCtxProvider.prototype & LR.UploadCtxProvider

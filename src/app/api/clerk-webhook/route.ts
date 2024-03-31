@@ -14,7 +14,7 @@ export async function POST(req: Request) {
       update: {
         email,
         name: first_name,
-        profileImage: image_url,
+        profileImage : image_url,
       },
       create: {
         clerkId: id,
