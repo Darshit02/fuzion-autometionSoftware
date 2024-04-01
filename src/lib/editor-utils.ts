@@ -1,5 +1,9 @@
 import { ConnectionProviderProps } from "@/providers/connections-provider"
 import { EditorCanvasCardType } from "./types"
+import { getSlackConnection } from "@/app/(main)/(pages)/connections/_actions/slack-connection"
+import { getNotionConnection, getNotionDatabase } from "@/app/(main)/(pages)/connections/_actions/notion-connect"
+import { getDiscordConnectionUrl } from "@/app/(main)/(pages)/connections/_actions/discored-connection"
+import { EditorState } from "@/providers/editor-provider"
 
 export const onDragStart = (
     event: any,
@@ -84,3 +88,60 @@ export const onDragStart = (
       onAddTemplateDiscord(nodeConnection, tamplate)
     } 
   }
+
+  export const onConnections = async (
+    nodeConnection: ConnectionProviderProps,
+    editorState: EditorState,
+    googleFile: any
+  ) => {
+    if (editorState.editor.selectedNode.data.title == 'Discord') {
+      const connection = await getDiscordConnectionUrl()
+      if (connection) {
+        nodeConnection.setDiscordNode({
+          webhookURL: connection.url,
+          content: '',
+          webhookName: connection.name,
+          guildName: connection.guildName,
+        })
+      }
+    }
+    if (editorState.editor.selectedNode.data.title == 'Notion') {
+      const connection = await getNotionConnection()
+      if (connection) {
+        nodeConnection.setNotionNode({
+          accessToken: connection.accessToken,
+          databaseId: connection.databaseId,
+          workspaceName: connection.workspaceName,
+          content: {
+            name: googleFile.name,
+            kind: googleFile.kind,
+            type: googleFile.mimeType,
+          },
+        })
+  
+        if (nodeConnection.notionNode.databaseId !== '') {
+          const response = await getNotionDatabase(
+            nodeConnection.notionNode.databaseId,
+            nodeConnection.notionNode.accessToken
+          )
+        }
+      }
+    }
+    if (editorState.editor.selectedNode.data.title == 'Slack') {
+      const connection = await getSlackConnection()
+      if (connection) {
+        nodeConnection.setSlackNode({
+          appId: connection.appId,
+          authedUserId: connection.authedUserId,
+          authedUserToken: connection.authedUserToken,
+          slackAccessToken: connection.slackAccessToken,
+          botUserId: connection.botUserId,
+          teamId: connection.teamId,
+          teamName: connection.teamName,
+          userId: connection.userId,
+          content: '',
+        })
+      }
+    }
+  }
+  
