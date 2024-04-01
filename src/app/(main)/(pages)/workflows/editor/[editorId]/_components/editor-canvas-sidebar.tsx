@@ -10,6 +10,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/ca
 import EditorCanvasIconHelper from "./editor-canvas-card-icon-helper";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { onDragStart } from "@/lib/editor-utils";
+import RenderConnectionAccordion from "./render-connections-accordian";
 
 type Props = {
   nodes: EditorNodeType[];
@@ -74,7 +75,7 @@ const EditorCanvasSidebar = ({ nodes }: Props) => {
             <AccordionTrigger className="!no-underline">
               Account
             </AccordionTrigger>
-            {/* <AccordionContent>
+            <AccordionContent>
               {CONNECTIONS.map((connection) => (
                 <RenderConnectionAccordion
                   key={connection.title}
@@ -82,7 +83,7 @@ const EditorCanvasSidebar = ({ nodes }: Props) => {
                   connection={connection}
                 />
               ))}
-            </AccordionContent> */}
+            </AccordionContent>
           </AccordionItem>
           <AccordionItem
             value="Expected Output"

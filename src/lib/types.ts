@@ -82,5 +82,12 @@ export type Connection = {
   connectionKey: keyof ConnectionProviderProps
   accessTokenKey?: string;
   alwaysTrue?: boolean;
-  slackSpacial?: boolean;
+  slackSpecial?: boolean;
 };
+
+export const nodeMapper: Record<string, string> = {
+  Notion: 'notionNode',
+  Slack: 'slackNode',
+  Discord: 'discordNode',
+  'Google Drive': 'googleNode',
+}
