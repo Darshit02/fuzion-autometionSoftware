@@ -1,10 +1,11 @@
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, currentUser } from "@clerk/nextjs";
 import { MenuIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 export const Navbar = async () => {
+  const user = await currentUser();
   return (
     <header className="fixed right-0 left-0 top-0 py-4 px-4 bg-black/40 backdrop-blur-lg z-[100] flex items-center border-b-[1px] border-neutral-900 justify-between">
       <aside className="flex items-center gap-[2px]">
@@ -49,11 +50,11 @@ export const Navbar = async () => {
           <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
             {
               //TODO? : Wire UP User
-              true ? "Dashboard" : "Get Started"
+              user ? "Dashboard" : "Get Started"
             }
           </span>
         </Link>
-        {/* //TODO? : Wire UP User */}
+        {user ? <UserButton afterSignOutUrl="/" /> : null}
         <MenuIcon className="md:hidden" size="24" />
       </aside>
     </header>
