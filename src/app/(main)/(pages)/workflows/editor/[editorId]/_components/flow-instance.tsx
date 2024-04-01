@@ -39,7 +39,7 @@ const FlowInstance = ({ children, edges, nodes }: Props) => {
   const onAutomateFlow = async () => {
     const flows: any = []
     const connectedEdges = edges.map((edge) => edge.target)
-    connectedEdges.map((target) => {
+    connectedEdges.forEach((target) => {
       nodes.map((node) => {
         if (node.id === target) {
           flows.push(node.type)
