@@ -1,9 +1,10 @@
 import { ConnectionProviderProps } from "@/providers/connections-provider"
 import { EditorCanvasCardType } from "./types"
-import { getSlackConnection } from "@/app/(main)/(pages)/connections/_actions/slack-connection"
+import { getSlackConnection, listBotChannels } from "@/app/(main)/(pages)/connections/_actions/slack-connection"
 import { getNotionConnection, getNotionDatabase } from "@/app/(main)/(pages)/connections/_actions/notion-connect"
 import { getDiscordConnectionUrl } from "@/app/(main)/(pages)/connections/_actions/discored-connection"
 import { EditorState } from "@/providers/editor-provider"
+import { Option } from "@/components/ui/multiple-selector"
 
 export const onDragStart = (
     event: any,
@@ -145,3 +146,9 @@ export const onDragStart = (
     }
   }
   
+
+  export const fetchBotSlackChannels = async (token: string , setSlackChannels : (slackChannels : Option[]) => void) => {
+    await listBotChannels(token).then((channels) => {
+      setSlackChannels(channels)
+    })
+  }
