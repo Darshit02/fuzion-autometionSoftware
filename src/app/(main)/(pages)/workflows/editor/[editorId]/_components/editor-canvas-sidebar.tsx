@@ -19,9 +19,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { onConnections, onDragStart } from "@/lib/editor-utils";
+import {
+  fetchBotSlackChannels,
+  onConnections,
+  onDragStart,
+} from "@/lib/editor-utils";
 import RenderConnectionAccordion from "./render-connections-accordian";
 import { useFuzionStore } from "@/store";
+import RenderOutputAccordion from "./render-outputs-accordians";
 
 type Props = {
   nodes: EditorNodeType[];
@@ -37,6 +42,15 @@ const EditorCanvasSidebar = ({ nodes }: Props) => {
       onConnections(nodeConnection, state, googleFile);
     }
   }, [state]);
+
+  useEffect(() => {
+    if (nodeConnection.slackNode.slackAccessToken) {
+      fetchBotSlackChannels(
+        nodeConnection.slackNode.slackAccessToken,
+        setSlackChannels
+      );
+    }
+  }, []);
   return (
     <aside>
       <Tabs defaultValue="actions" className="h-screen overflow-scroll pb-24">
@@ -95,10 +109,10 @@ const EditorCanvasSidebar = ({ nodes }: Props) => {
               <AccordionTrigger className="!no-underline">
                 Action
               </AccordionTrigger>
-              {/* <RenderOutputAccordion
-              state={state}
-              nodeConnection={nodeConnection}
-            /> */}
+              <RenderOutputAccordion
+                state={state}
+                nodeConnection={nodeConnection}
+              />
             </AccordionItem>
           </Accordion>
         </TabsContent>
