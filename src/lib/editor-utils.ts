@@ -148,7 +148,7 @@ export const onDragStart = (
   
 
   export const fetchBotSlackChannels = async (token: string , setSlackChannels : (slackChannels : Option[]) => void) => {
-    await listBotChannels(token).then((channels) => {
+    await listBotChannels(token)?.then((channels) => {
       setSlackChannels(channels)
     })
   }
