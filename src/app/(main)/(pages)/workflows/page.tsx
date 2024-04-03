@@ -11,10 +11,7 @@ const Page = (props: Props) => {
         Workflows
         <WorkFlowButton/>
       </h1>
-      <Workflows/>
-      <Workflows/>
-      <Workflows/>
-      <Workflows/>
+      <Workflows/>   
     </div>
   );
 };
