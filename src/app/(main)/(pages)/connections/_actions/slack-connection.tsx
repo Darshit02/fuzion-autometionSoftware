@@ -65,17 +65,15 @@ export async function listBotChannels(
       headers: { Authorization: `Bearer ${slackAccessToken}` },
     })
 
-    console.log(data)
 
     if (!data.ok) throw new Error(data.error)
 
     if (!data?.channels?.length) return []
 
-    return data.channels
-      .filter((ch: any) => ch.is_member)
-      .map((ch: any) => {
+    return data.channels.filter((ch: any) => ch.is_member).map((ch: any) => {
         return { label: ch.name, value: ch.id }
       })
+      
   } catch (error: any) {
     console.error('Error listing bot channels:', error.message)
     throw error

@@ -1,6 +1,5 @@
 import React, { useCallback } from "react";
 import { ConnectionProviderProps } from "@/providers/connections-provider";
-import { Option } from "./content-based-on-title";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { postContentToWebHook } from "@/app/(main)/(pages)/connections/_actions/discored-connection";
@@ -8,6 +7,7 @@ import { toast } from "sonner";
 import { onCreateNodeTemplate } from "../../../_actions/workflow-connection";
 import { onCreateNewPageInDatabase } from "@/app/(main)/(pages)/connections/_actions/notion-connect";
 import { postMessageToSlack } from "@/app/(main)/(pages)/connections/_actions/slack-connection";
+import { Option } from "@/components/ui/multiple-selector";
 
 type Props = {
   currentService: string;
