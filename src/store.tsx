@@ -28,3 +28,4 @@ export const useFuzionStore = create<FuzionStore>()((set) => ({
   setSelectedSlackChannels: (selectedSlackChannels: Option[]) =>
     set({ selectedSlackChannels }),
 }))
+

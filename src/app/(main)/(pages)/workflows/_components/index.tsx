@@ -1,11 +1,11 @@
 import React from "react";
 import Workflow from "./workflow";
-import { onGetWorkflow } from "../_actions/workflow-connection";
+import { onGetWorkflows } from "../_actions/workflow-connection";
 
 type Props = {};
 
 const Workflows = async (props: Props) => {
-  const workflows = await onGetWorkflow();
+  const workflows = await onGetWorkflows();
   return (
     <div className="relative flex flex-col gap-4">
       <section className="flex flex-col gap-4 m-2">

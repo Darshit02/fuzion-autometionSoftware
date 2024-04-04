@@ -20,7 +20,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
-  fetchBotSlackChannels,
+  fetchBotSlackChannel,
   onConnections,
   onDragStart,
 } from "@/lib/editor-utils";
@@ -36,6 +36,7 @@ const EditorCanvasSidebar = ({ nodes }: Props) => {
   const { state } = useEditor();
   const { nodeConnection } = useNodeConnections();
   const { googleFile, setSlackChannels } = useFuzionStore();
+  
 
   useEffect(() => {
     if (state) {
@@ -45,12 +46,13 @@ const EditorCanvasSidebar = ({ nodes }: Props) => {
 
   useEffect(() => {
     if (nodeConnection.slackNode.slackAccessToken) {
-      fetchBotSlackChannels(
+      fetchBotSlackChannel(
         nodeConnection.slackNode.slackAccessToken,
         setSlackChannels
-      );
+      )
     }
-  }, []);
+  }, [nodeConnection])
+
   return (
     <aside>
       <Tabs defaultValue="actions" className="h-screen overflow-scroll pb-24">

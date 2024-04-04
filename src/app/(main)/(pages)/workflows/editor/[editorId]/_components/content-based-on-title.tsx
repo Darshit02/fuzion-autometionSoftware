@@ -12,7 +12,6 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { toast } from 'sonner'
 import { onContentChange } from '@/lib/editor-utils'
 import GoogleFileDetails from './google-file-details'
 import GoogleDriveFiles from './google-drive-file'
@@ -22,9 +21,7 @@ export interface Option {
   value: string
   label: string
   disable?: boolean
-  /** fixed option that can't be removed. */
   fixed?: boolean
-  /** Group the options by providing key. */
   [key: string]: string | boolean | undefined
 }
 interface GroupOption {
