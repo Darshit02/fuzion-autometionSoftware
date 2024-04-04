@@ -51,7 +51,7 @@ const GoogleDriveFiles = (props: Props) => {
           })}
         >
           {loading ? (
-            <div className="absolute flex h-full w-full items-center justify-center">
+            <div className="flex  items-center justify-center">
               <svg
                 aria-hidden="true"
                 className="inline h-8 w-8 animate-spin fill-blue-600 text-gray-200 dark:text-gray-600"

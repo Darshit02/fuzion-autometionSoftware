@@ -23,8 +23,12 @@ const RenderConnectionAccordion = ({
     connectionKey,
     accessTokenKey,
     alwaysTrue,
-    slackSpecial : slackSpecial = true,
+    slackSpecial = true,
   } = connection
+
+
+   
+
 
   const { nodeConnection } = useNodeConnections()
   const { slackChannels, selectedSlackChannels, setSelectedSlackChannels } =
@@ -54,7 +58,7 @@ const RenderConnectionAccordion = ({
               {slackChannels?.length ? (
                 <>
                   <div className="mb-4 ml-1">
-                    Select the slack channels to send notification and messages:
+                    Select the slack channels to send notification and messages if you are in slack node:
                   </div>
                   <MultipleSelector
                     value={selectedSlackChannels}

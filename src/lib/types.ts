@@ -20,7 +20,7 @@ export type Connection = {
   connectionKey: keyof ConnectionProviderProps
   accessTokenKey?: string
   alwaysTrue?: boolean
-  slackSpecial?: boolean 
+  slackSpecial: boolean 
 }
 
 export type EditorCanvasTypes =
