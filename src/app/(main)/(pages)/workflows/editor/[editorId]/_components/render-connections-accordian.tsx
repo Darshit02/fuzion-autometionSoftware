@@ -69,7 +69,7 @@ const RenderConnectionAccordion = ({
                   />
                 </>
               ) : (
-                'No Slack channels found. Please add your Slack bot to your Slack channel'
+                ''
               )}
             </div>
           )}
