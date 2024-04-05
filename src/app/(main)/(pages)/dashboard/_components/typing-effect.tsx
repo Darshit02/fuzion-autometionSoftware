@@ -3,6 +3,8 @@
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { auth } from "@clerk/nextjs";
 import { PlusCircle } from "lucide-react";
+import { MultiStepLoaderDemo } from "./step-button";
+import Link from "next/link";
 
 export function TypewriterEffectSmoothDemo() {
   const words = [
@@ -19,8 +21,8 @@ export function TypewriterEffectSmoothDemo() {
       text: "automation with",
     },
     {
-      text: "fuzion.",
-      className: "text-puple-500 dark:text-purple-500",
+      text: "Fuzion.",
+      className: "text-purple-500 dark:text-purple-500",
     },
   ];
   return (
@@ -29,14 +31,18 @@ export function TypewriterEffectSmoothDemo() {
         Welcom to Fuzion
       </p>
       <TypewriterEffectSmooth words={words} />
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4">
-        <button className="w-40 h-10 rounded-xl bg-black border dark:border-white border-transparent text-white text-sm">
-         Steps
-        </button>
+      <div className="flex items-center md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 justify-center mt-16">
+        <div>
+        <MultiStepLoaderDemo/>
+        </div>
+        <div>
+          <Link href="/workflows">
         <button className="flex justify-center items-center gap-2 w-40 h-10 rounded-xl bg-white text-black border border-black  text-sm">
             <PlusCircle className="text-gray-600 h-4 w-4"/>
           create Flow
         </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
