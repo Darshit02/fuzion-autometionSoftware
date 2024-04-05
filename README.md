@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a repository for Fullstack Automation Software : used to connection with DRIVE, DISCORD ,NOTION ,SLACK;
 
-## Getting Started
+Key Features:
+- 📡  Awsome UI
+- 🌐 Connection with your app or web
+- 🔗 Easy Drag and Drop feature to create flow 
+- 🔐 On click Actions
+- 📸 Profile Update
+- 👀 Show Cradites
+- 🚦 Your Payment Status
+- 💬 Real-time chat using sockets 
+- 🎨 Unique UI 
+- 👥 Following system     
+- 🎨 Beautiful design
+- ⚡ Blazing fast application 
+- 📄 SSR (Server-Side Rendering) 
+- 🗺️ Grouped routes & layouts 
+- 🗃️ MySQL
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Node version 18.17 or later**
+
+### Cloning the repository
+
+```shell
+https://github.com/Darshit02/fuzion-autometionSoftware.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install packages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+npm i
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Setup .env file
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+```js
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+DATABASE_URL=
 
-## Deploy on Vercel
+NEXT_PUBLIC_URL=https://localhost:3000
+NEXT_PUBLIC_DOMAIN=localhost:3000
+NEXT_PUBLIC_SCHEME=https://
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+NEXT_PUBLIC_GOOGLE_SCOPES=
+NEXT_PUBLIC_OAUTH2_ENDPOINT=
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+NEXT_PUBLIC_UPLOAD_CARE_CSS_SRC=https://cdn.jsdelivr.net/npm/@uploadcare/blocks@
+NEXT_PUBLIC_UPLOAD_CARE_SRC_PACKAGE=/web/lr-file-uploader-regular.min.css
+
+DISCORD_CLIENT_ID=
+DISCORD_CLIENT_SECRET=
+DISCORD_TOKEN=
+DISCORD_PUBLICK_KEY=
+NEXT_PUBLIC_DISCORD_REDIRECT=
+
+NOTION_API_SECRET=
+NOTION_CLIENT_ID=
+NOTION_REDIRECT_URI=
+NEXT_PUBLIC_NOTION_AUTH_URL=
+
+
+
+SLACK_SIGNING_SECRET=
+SLACK_BOT_TOKEN=
+SLACK_APP_TOKEN=
+SLACK_CLIENT_ID=
+SLACK_CLIENT_SECRET=
+SLACK_REDIRECT_URI=
+NEXT_PUBLIC_SLACK_REDIRECT=
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+OAUTH2_REDIRECT_URI=
+NGROK_URI=
+CRON_JOB_KEY=
+STRIPE_SECRET=
+```
+
+### Setup Prisma
+
+Add MySQL Database (I used neonDB)
+
+```shell
+npx prisma generate
+npx prisma db push
+
+```
+
+### Start the app
+
+```shell
+npm run dev
+```
+
+## Available commands
+
+Running commands with npm `npm run [command]`
+
+| command         | description                              |
+| :-------------- | :--------------------------------------- |
+| `dev`           | Starts a development instance of the app |
